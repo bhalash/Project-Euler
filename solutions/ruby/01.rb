@@ -1,12 +1,16 @@
 #!/usr/bin/env ruby
 
-def sum_to(multiple, end_num)
-    end_num = end_num.to_f
-    multiple = multiple.to_f
+def sum_to(multiples, end_num)
+    end_num.to_f
 
-    end_num = end_num - (end_num % multiple)
+    multiples.map! { |number|
+        number = number.to_f
+        max = end_num - (end_num % number)
+        number = ((max / number / 2) * (max + number))
+    }
 
-    return ((end_num / multiple / 2) * (end_num + multiple)).to_i
+    return multiples
 end
 
-puts(sum_to(3, 999) + sum_to(5, 999) - sum_to(15, 999))
+three, five, fifteen = sum_to([3, 5, 15], 999)
+puts((three + five - fifteen).to_i)
