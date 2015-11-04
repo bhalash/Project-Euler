@@ -1,12 +1,10 @@
 #!/usr/bin/env ruby
 
 def sum_to(multiples, end_num)
-    end_num.to_f
-
     multiples.map! { |number|
         number = number.to_f
         max = end_num - (end_num % number)
-        number = ((max / number / 2) * (max + number))
+        number = (max / number / 2) * (max + number)
     }
 end
 
