@@ -8,8 +8,6 @@ def sum_to(multiples, end_num)
         max = end_num - (end_num % number)
         number = ((max / number / 2) * (max + number))
     }
-
-    return multiples
 end
 
 three, five, fifteen = sum_to([3, 5, 15], 999)
