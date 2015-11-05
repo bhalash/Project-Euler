@@ -1,12 +1,9 @@
 #!/bin/bash
 
-A=13.txt
+sum=0
 
-for i in {1..100}
-do 
-	B=`expr $B + $(sed -n "${i}{p}" $A)`
+for line in $(cat '13.txt'); do
+    sum=$(bc <<< "${sum} + ${line}")
 done
 
-echo
-echo -n $B | cut -c 1-10
-echo
+cut -c 1-10 <<< $sum
