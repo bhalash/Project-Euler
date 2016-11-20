@@ -50,11 +50,14 @@ function* lexicographer(array) {
     }
 }
 
-const permuter = lexicographer([...Array(10).keys()]);
-let permutation;
+const breakpoint = 1000000;
+let permutations = 0;
 
-for (var i = 0; i < 1000000; i++) {
-    permutation = permuter.next().value;
+for (let value of lexicographer([...Array(10).keys()])) {
+    permutations++;
+
+    if (permutations === breakpoint) {
+        console.log(value.join(''));
+        break;
+    }
 }
-
-console.log(permutation.join(''));
